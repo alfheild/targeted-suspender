@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "version": "0.0.1",
+  "name": "Targeted Tab Suspender",
+  "description": "Make your computer run smoothly by suspending the tabs you aren't using",
+  "icons": {
+    "16": "images/extension_16.png",
+    "48": "images/extension_48.png",
+    "128": "images/extension_128.png"
+  },
+  "minimum_chrome_version": "120",
+  "background": {
+    "chromium:service_worker": "background.ts",
+    "firefox:scripts": [
+      "background.ts"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "./content/scripts.ts"
+      ],
+      "css": [
+        "./content/styles.css"
+      ]
+    }
+  ],
+  "author": "Your Name"
+}
